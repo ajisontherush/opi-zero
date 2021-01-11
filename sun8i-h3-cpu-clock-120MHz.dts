@@ -1,0 +1,29 @@
+/dts-v1/;
+
+/ {
+
+	fragment@0 {
+		target = < 0xffffffff >;
+
+		__overlay__ {
+			compatible = "operating-points-v2";
+			opp-shared;
+
+			opp-120000000 {
+				opp-hz = < 0x00 0x7270e00 >;
+				opp-microvolt = < 0xfde80 0xfde80 0x13d620 >;
+				clock-latency-ns = < 0x3b9b0 >;
+			};
+
+			opp-240000000 {
+				opp-hz = < 0x00 0xe4e1c00 >;
+				opp-microvolt = < 0xfde80 0xfde80 0x13d620 >;
+				clock-latency-ns = < 0x3b9b0 >;
+			};
+		};
+	};
+
+	__fixups__ {
+		cpu0_opp_table = "/fragment@0:target:0";
+	};
+};
